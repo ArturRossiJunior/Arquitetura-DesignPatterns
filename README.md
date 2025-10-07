@@ -56,7 +56,7 @@ classDiagram
         - size: string
         + render()
     }
-    class "button.styles.ts" as StyleFactory {
+    class StyleFactory {
         <<Factory Module>>
         + createButtonStyles(isTablet) : StyleObject
     }
