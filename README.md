@@ -20,6 +20,8 @@ Os padrões de projeto são classicamente divididos em três categorias, baseada
 
 ## 🎯 Padrão de Projeto Aplicado: Factory Method
 
+O Factory Method é um padrão criacional de projeto que fornece uma interface para criar objetos em uma superclasse, mas permite que as subclasses alterem o tipo de objetos que serão criados.
+
 ### 🧱 Categoria
 
 **Criacional**: Como vimos, este padrão foca em como os objetos são criados.
