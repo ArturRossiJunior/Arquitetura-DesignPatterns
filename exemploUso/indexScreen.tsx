@@ -49,7 +49,7 @@ const IndexScreen = ({ navigation }: IndexScreenProps) => {
                 </Text>
               </View>
 
-              {/* * ✨ CONSUMO DO COMPONENTE BUTTON ✨
+              {/* * CONSUMO DO COMPONENTE BUTTON
                * Aqui, solicitamos à "fábrica" de botões uma instância com a variante "game".
                * A tela não precisa saber como o botão "game" é estilizado, apenas o utiliza
                * de forma declarativa.
@@ -79,7 +79,7 @@ const IndexScreen = ({ navigation }: IndexScreenProps) => {
                 </Text>
               </View>
               
-              {/* * ✨ CONSUMO DO COMPONENTE BUTTON (Outra Variante) ✨
+              {/* * CONSUMO DO COMPONENTE BUTTON (Outra Variante)
                * Novamente, utilizamos o mesmo componente <Button />, mas desta vez pedimos
                * a variante "soft". O Factory Method garante que o botão correto seja
                * renderizado, mantendo a consistência e a simplicidade no código da tela.
