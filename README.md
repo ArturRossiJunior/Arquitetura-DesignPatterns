@@ -1,43 +1,61 @@
-🏗️ Arquitetura e Design Patterns em React Native
-Este repositório demonstra a aplicação prática de um Design Pattern na arquitetura de um aplicativo mobile desenvolvido com React Native + Expo + TypeScript. A implementação foca no padrão Factory Method para a criação de um componente de botão reutilizável e configurável.
+# 🏗️ Arquitetura com Design Patterns em React Native
 
-📌 Introdução
-Design Patterns (Padrões de Projeto) são soluções consolidadas e reutilizáveis para problemas comuns no desenvolvimento de software. A adoção desses padrões promove um código mais legível, desacoplado e de fácil manutenção.
+Este repositório documenta a aplicação de um **Design Pattern** na arquitetura de um aplicativo mobile moderno, construído com **React Native, Expo e TypeScript**. O foco principal é a implementação do padrão **Factory Method** para desacoplar e escalar a criação de componentes de UI.
 
-Neste projeto, o padrão Factory Method, pertencente à categoria Criacional, foi escolhido por se alinhar perfeitamente à necessidade de organizar e reutilizar componentes visuais de forma escalável.
+---
 
-🎯 Padrão Aplicado: Factory Method
-🧱 Categoria: Criacional
-O padrão Factory Method define uma interface para criar um objeto, mas permite que as subclasses alterem o tipo de objetos que serão criados. No contexto de componentes, ele permite a criação de variações de um mesmo elemento sem expor a lógica de criação ao cliente.
+## 📌 Introdução
 
-✅ Justificativa da Escolha
-Durante o desenvolvimento do aplicativo, surgiu a necessidade de criar múltiplos componentes visuais reutilizáveis, como botões com diferentes aparências (cores, bordas) e tamanhos. Para evitar a duplicação de código e manter uma arquitetura limpa e centralizada, aplicamos o padrão Factory Method ao nosso componente Button.
+**Design Patterns** (Padrões de Projeto) são soluções arquiteturais testadas e aprovadas para problemas recorrentes no ciclo de vida do desenvolvimento de software. Sua aplicação resulta em um código mais coeso, legível e de fácil manutenção.
 
-🧩 Estrutura do Componente
-O componente Button funciona como uma "fábrica" que recebe as props variant e size. Com base nesses parâmetros, uma função createButtonStyles gera dinamicamente os estilos apropriados, desacoplando a lógica de estilização da implementação do componente.
+Neste projeto, o padrão **Factory Method**, da categoria **Criacional**, foi selecionado por sua notável capacidade de abstrair a lógica de instanciação de componentes, tornando a UI mais flexível e organizada.
 
-🔨 Arquivos Principais
-components/Button.tsx: Componente React que atua como a interface da fábrica, recebendo as configurações.
+---
 
-components/styles/button.styles.ts: Arquivo que contém a lógica de criação (a "fábrica" de estilos) com base nas variantes e tamanhos.
+## 🎯 Padrão de Projeto: Factory Method
 
-🧠 Como o Factory Method foi Aplicado?
-O componente Button delega a responsabilidade de criar os estilos para a função createButtonStyles, que atua como nossa "fábrica". Isso permite que, com uma única interface (<Button />), possamos gerar inúmeras combinações de estilo e tamanho de forma limpa e previsível.
+### 🧱 Categoria
 
-Exemplos de Uso
-A seguir, exemplos de como a "fábrica" é utilizada para criar diferentes tipos de botões:
+**Criacional**: Padrões que abstraem o processo de criação de objetos.
 
-// Cria um botão primário e grande
+### ✅ Motivação
+
+A necessidade de construir uma biblioteca de **componentes visuais reutilizáveis** — como botões com diferentes estilos (`primary`, `outline`) e dimensões (`small`, `large`) — motivou a escolha. O **Factory Method** nos permitiu centralizar a lógica de criação, evitando a duplicação de código e promovendo um sistema de design consistente.
+
+---
+
+## 🧩 Estrutura da Implementação
+
+A solução foi estruturada em torno de um componente `Button` que delega a responsabilidade de criar seus estilos para uma função "fábrica". Essa função utiliza as `props` `variant` e `size` como parâmetros para determinar qual variação de estilo deve ser retornada.
+
+### 🗂️ Arquivos Principais
+
+-   `components/Button.tsx`: O componente que serve como interface para o cliente. Ele consome a fábrica de estilos.
+-   `components/styles/button.styles.ts`: A implementação do **Factory Method**. Contém a lógica que gera os estilos dinamicamente com base nos parâmetros recebidos.
+
+---
+
+## 🧠 Lógica de Aplicação do Padrão
+
+O componente `Button` atua como uma **fábrica de variações visuais**. Ao invés de conter múltiplas lógicas condicionais de estilo (`if/else` ou `switch`), ele solicita a variação desejada diretamente à "fábrica" de estilos. Essa abordagem simplifica o componente e isola a lógica de criação.
+
+### 💡 Exemplos de Uso
+
+A API do componente permanece simples e declarativa, enquanto a complexidade da criação de estilos fica encapsulada na fábrica.
+
+```tsx
+// 1. Botão primário e grande
 <Button variant="primary" size="large">
-  Salvar
+  Confirmar Ação
 </Button>
 
-// Cria um botão com bordas e pequeno
+// 2. Botão secundário (outline) e pequeno
 <Button variant="outline" size="small">
   Cancelar
 </Button>
 
-// Utiliza os valores padrão definidos na fábrica
+// 3. Botão com valores padrão (default) definidos na fábrica
 <Button>
-  Default
+  Saiba Mais
 </Button>
+```
