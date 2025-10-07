@@ -41,24 +41,34 @@ A solução foi estruturada em torno de um componente `Button` que delega a resp
 
 ### Diagrama da Estrutura
 
-O diagrama abaixo ilustra a relação entre o cliente (tela), o componente e a fábrica de estilos.
+O diagrama abaixo ilustra os papéis de cada parte da nossa implementação do padrão. A tela (`IndexScreen`) atua como **Cliente**, o componente `Button` como **Criador**, e a função `createButtonStyles` como a **Fábrica** que gera os **Produtos** (objetos de estilo).
 
 ```mermaid
 classDiagram
-  class IndexScreen {
-    +render()
-    +onPress()
-  }
-  class Button {
-    -variant: ButtonVariant
-    -size: ButtonSize
-    +render()
-  }
-  class StyleFactory {
-    +createButtonStyles(isTablet)
-  }
-  IndexScreen --|> Button : "usa / renderiza"
-  Button ..|> StyleFactory : "delega a criação de estilos para"
+    direction LR
+    class IndexScreen {
+        <<Client Component>>
+        +render()
+    }
+    class Button {
+        <<Creator Component>>
+        - variant: string
+        - size: string
+        + render()
+    }
+    class "button.styles.ts" as StyleFactory {
+        <<Factory Module>>
+        + createButtonStyles(isTablet) : StyleObject
+    }
+    class StyleObject {
+        <<Product>>
+        + container: Style
+        + text: Style
+    }
+
+    IndexScreen "1" -- "1..*" Button : usa
+    Button ..> StyleFactory : delega para
+    StyleFactory ..> StyleObject : cria
 ```
 
 ### 🗂️ Arquivos Principais
@@ -110,7 +120,7 @@ Para visualizar a implementação em funcionamento, siga os passos abaixo:
     ```
 2.  **Acesse o diretório do projeto:**
     ```bash
-    cd Arquitetura_DesignPatterns
+    cd Arquitetura-DesignPatterns
     ```
 3.  **Instale as dependências:**
     ```bash
