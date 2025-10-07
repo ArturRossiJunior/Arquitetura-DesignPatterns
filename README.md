@@ -106,11 +106,11 @@ Para visualizar a implementação em funcionamento, siga os passos abaixo:
 
 1.  **Clone o repositório:**
     ```bash
-    git clone <URL_DO_SEU_REPOSITORIO>
+    git clone https://github.com/ArturRossiJunior/Arquitetura-DesignPatterns.git
     ```
 2.  **Acesse o diretório do projeto:**
     ```bash
-    cd <NOME_DO_REPOSITORIO>
+    cd Arquitetura_DesignPatterns
     ```
 3.  **Instale as dependências:**
     ```bash
