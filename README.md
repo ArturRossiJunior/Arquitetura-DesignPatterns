@@ -109,6 +109,7 @@ No código da `IndexScreen`, o mesmo componente `<Button>` é chamado para criar
   </Button>
 // ...
 ```
+<img width="533" height="819" alt="Captura de tela 2025-10-07 213852" src="https://github.com/user-attachments/assets/60a2088f-7292-424f-ae0a-b2a8318373a5" />
 
 ---
 
