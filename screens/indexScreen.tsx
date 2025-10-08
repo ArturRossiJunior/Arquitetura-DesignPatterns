@@ -39,7 +39,6 @@ const IndexScreen = ({ navigation }: IndexScreenProps) => {
           <Card
             variant="default" // O componente Card também pode usar o padrão Factory para suas variantes.
             style={styles.navigationCard}
-            onPress={() => navigation.navigate('Login')}
           >
             <View style={styles.cardContent}>
               <View style={styles.textContainer}>
@@ -58,7 +57,6 @@ const IndexScreen = ({ navigation }: IndexScreenProps) => {
                 variant="game"
                 size="default"
                 style={styles.actionButton}
-                onPress={() => navigation.navigate('Login')}
               >
                 Começar
               </Button>
@@ -69,7 +67,6 @@ const IndexScreen = ({ navigation }: IndexScreenProps) => {
           <Card
             variant="default"
             style={styles.navigationCard}
-            onPress={() => Alert.alert( /* ... */ )}
           >
             <View style={styles.cardContent}>
               <View style={styles.textContainer}>
@@ -88,7 +85,6 @@ const IndexScreen = ({ navigation }: IndexScreenProps) => {
                 variant="soft"
                 size="default"
                 style={styles.actionButton}
-                onPress={() => Alert.alert( /* ... */ )}
               >
                 Saber Mais
               </Button>
